@@ -210,12 +210,19 @@ public class EasyArray {
 
     // 11. Maximum consecutive ones — O(n)
     private void maxConsecutiveOnes() {
-        int max = 0, count = 0;
-        for (int i = 0; i < size; i++) {
-            count = (arr[i] == 1) ? count + 1 : 0;
-            max = Math.max(max, count);
+    int max = 0;
+    int count = 0;
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == 1) {
+            count++;
+            if (count > max) {
+                max = count;
+            }
+        } else {
+            count = 0;
         }
-        System.out.println("Max Consecutive Ones: " + max);
+    }
+    System.out.println("Max Consecutive Ones: " + max);
     }
 
     // 12. Single number (XOR) — O(n)
